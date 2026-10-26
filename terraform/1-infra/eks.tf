@@ -13,6 +13,26 @@ module "eks" {
 
   authentication_mode                     = "API"
   enable_cluster_creator_admin_permissions = true
+    access_entries = {
+    eks_admin = {
+      principal_arn = aws_iam_role.eks_admin.arn
+      policy_associations = {
+        admin = {
+          policy_arn   = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+          access_scope = { type = "cluster" }
+        }
+      }
+    }
+    eks_read_only = {
+      principal_arn = aws_iam_role.eks_read_only.arn
+      policy_associations = {
+        view = {
+          policy_arn   = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy"
+          access_scope = { type = "cluster" }
+        }
+      }
+    }
+  }
 
   addons = {
     vpc-cni = {
@@ -29,6 +49,7 @@ module "eks" {
         service_account = "ebs-csi-controller-sa"
       }]
     }
+    
   }
 
   eks_managed_node_groups = {
@@ -50,5 +71,5 @@ module "ebs_csi_pod_identity" {
   name = "${var.cluster_name}-ebs-csi"
 
   attach_aws_ebs_csi_policy = true
-  
+
 }
