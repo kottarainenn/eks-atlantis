@@ -22,13 +22,13 @@ resource "aws_iam_role_policy" "atlantis" {
         Sid      = "StateBucketList"
         Effect   = "Allow"
         Action   = "s3:ListBucket"
-        Resource = "arn:aws:s3:::${data.terraform_remote_state.infra.outputs.state_bucket_name}"
+        Resource = "arn:aws:s3:::tfstate-460734939645-eu-north-1"
       },
       {
         Sid      = "StateBucketDemoObjects"
         Effect   = "Allow"
         Action   = ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"]
-        Resource = "arn:aws:s3:::${data.terraform_remote_state.infra.outputs.state_bucket_name}/demo/*"
+        Resource = "arn:aws:s3:::tfstate-460734939645-eu-north-1/demo/*"
       },
       {
         Sid      = "DemoResources"
