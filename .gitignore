@@ -1,0 +1,34 @@
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+*.tfplan
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Secrets and local config
+*.auto.tfvars
+secrets.auto.tfvars
+.env
+.env.*
+*.pem
+*.key
+kubeconfig*
+backend.hcl
+
+# Helm
+charts/*.tgz
+
+# macOS
+.DS_Store
+
+# VS Code
+!.vscode/settings.json
+!.vscode/extensions.json
