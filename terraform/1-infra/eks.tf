@@ -50,12 +50,5 @@ module "ebs_csi_pod_identity" {
   name = "${var.cluster_name}-ebs-csi"
 
   attach_aws_ebs_csi_policy = true
-
-  associations = {
-    main = {
-      cluster_name    = module.eks.cluster_name
-      namespace       = "kube-system"
-      service_account = "ebs-csi-controller-sa"
-    }
-  }
+  
 }

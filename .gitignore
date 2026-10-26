@@ -13,6 +13,7 @@ override.tf.json
 .terraformrc
 terraform.rc
 terraform.tfvars
+tf-error.log
 
 # Secrets and local config
 *.auto.tfvars
