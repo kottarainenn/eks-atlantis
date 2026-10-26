@@ -1,0 +1,5 @@
+repos:
+  - id: github.com/kottarainenn/eks-atlantis
+    apply_requirements: [mergeable]
+    allowed_overrides: [workflow]
+    allow_custom_workflows: false
