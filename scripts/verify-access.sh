@@ -9,10 +9,10 @@ CLUSTER_NAME=$(terraform output -raw cluster_name)
 REGION=$(terraform output -raw region)
 
 echo "Configuring admin context..."
-aws eks update-kubeconfig --name "$CLUSTER_NAME" --region "$REGION" --role-arn "$ADMIN_ARN" --alias admin
+aws eks update-kubeconfig --name "$CLUSTER_NAME" --region "$REGION" --role-arn "$ADMIN_ARN" --alias admin --user-alias admin
 
 echo "Configuring read-only context..."
-aws eks update-kubeconfig --name "$CLUSTER_NAME" --region "$REGION" --role-arn "$RO_ARN" --alias ro
+aws eks update-kubeconfig --name "$CLUSTER_NAME" --region "$REGION" --role-arn "$RO_ARN" --alias ro --user-alias ro
 
 echo ""
 echo "--- admin role: who am I ---"
