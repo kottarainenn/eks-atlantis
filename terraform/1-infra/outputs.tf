@@ -33,3 +33,7 @@ output "eks_admin_role_arn" {
 output "eks_read_only_role_arn" {
   value = aws_iam_role.eks_read_only.arn
 }
+
+output "state_bucket_name" {
+  value = var.state_bucket_name
+}

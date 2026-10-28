@@ -24,6 +24,7 @@ bootstrap:
 	@echo "bucket = \"$$(cd terraform/0-bootstrap && terraform output -raw bucket_name)\"" > terraform/1-infra/backend.hcl
 	@echo "bucket = \"$$(cd terraform/0-bootstrap && terraform output -raw bucket_name)\"" > terraform/2-atlantis/backend.hcl
 	@echo "bucket = \"$$(cd terraform/0-bootstrap && terraform output -raw bucket_name)\"" > demo/backend.hcl
+	@echo "state_bucket_name = \"$$(cd terraform/0-bootstrap && terraform output -raw bucket_name)\"" > terraform/1-infra/terraform.auto.tfvars
 
 infra:
 	@echo "Applying infra stack (VPC, EKS, IAM roles)..."
