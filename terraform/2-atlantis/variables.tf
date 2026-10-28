@@ -27,3 +27,9 @@ variable "basic_auth_password" {
   type      = string
   sensitive = true
 }
+
+variable "github_repo" {
+  type        = string
+  description = "Repo name that Atlantis watches"
+  default     = "eks-atlantis"
+}
