@@ -1,0 +1,8 @@
+version: 3
+automerge: true
+projects:
+  - name: demo
+    dir: demo
+    autoplan:
+      enabled: true
+      when_modified: ["*.tf"]
